@@ -1,0 +1,15 @@
+factorial() 
+{
+  if [ $1 -eq 0 ] || [ $1 -eq 1 ]; then
+    echo 1
+  else
+    subfactorial=$(factorial $(( $1 - 1 )))
+    echo $(( $1 * subfactorial ))
+  fi
+}
+
+echo "Enter a number:"
+read number
+
+result=$(factorial $number)
+echo "The factorial of $number is $result"
